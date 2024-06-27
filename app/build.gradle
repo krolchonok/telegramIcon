@@ -1,14 +1,13 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
 }
 
 android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.ushastoe.telegramIcon"
-        minSdk 21
+        applicationId "com.ushastoe.settingsF"
+        minSdk 16
         targetSdkVersion 35
         versionCode appVerCode.toInteger()
         versionName appVerName
@@ -32,13 +31,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = '17'
-    }
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.13.1'
     compileOnly 'de.robv.android.xposed:api:82'
 }
 
