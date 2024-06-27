@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.ushastoe.telegramIcon"
+        minSdk 21
+        targetSdkVersion 35
+        versionCode appVerCode.toInteger()
+        versionName appVerName
+    }
+    applicationVariants.configureEach { variant ->
+        variant.resValue "string", "app_version", variant.versionName
+        variant.outputs.configureEach { output ->
+            if (variant.buildType.name == 'release') {
+                outputFileName = "settingsF_${defaultConfig.versionName}.apk"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.13.1'
+    compileOnly 'de.robv.android.xposed:api:82'
+}
+
