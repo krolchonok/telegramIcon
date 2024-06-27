@@ -6,7 +6,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.ushastoe.settingsF"
+        applicationId "com.ushastoe.telegramIcon"
         minSdk 16
         targetSdkVersion 35
         versionCode appVerCode.toInteger()
@@ -16,7 +16,7 @@ android {
         variant.resValue "string", "app_version", variant.versionName
         variant.outputs.configureEach { output ->
             if (variant.buildType.name == 'release') {
-                outputFileName = "settingsF_${defaultConfig.versionName}.apk"
+                outputFileName = "telegramIcon_${defaultConfig.versionName}.apk"
             }
         }
     }
